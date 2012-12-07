@@ -42,5 +42,18 @@ module BoardSteps
           
 )
     end
+    def fourth
+      %q(          
+          
+          
+     +    
+    + +   
+   +   +  
+    + +   
+     +    
+          
+          
+)
+    end
   end
 end

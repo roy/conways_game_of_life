@@ -10,7 +10,6 @@ describe Cell do
       cell = Cell.new(@board, :alive)
 
       cell.neighbours = []
-      cell.neighbours.length.should == 0
       cell.calculate_next_step
       cell.evolve!
       cell.should be_dead
@@ -22,7 +21,6 @@ describe Cell do
 
       cell.neighbours = neighbours
 
-      cell.alive_neighbours.should == 2
       cell.calculate_next_step
       cell.evolve!
       cell.should be_alive
@@ -34,7 +32,6 @@ describe Cell do
 
       cell.neighbours = neighbours
 
-      cell.alive_neighbours.should == 4
       cell.calculate_next_step
       cell.evolve!
       cell.should be_dead
@@ -46,7 +43,6 @@ describe Cell do
 
       cell.neighbours = neighbours
 
-      cell.alive_neighbours.should == 3
       cell.calculate_next_step
       cell.evolve!
       cell.should be_alive

@@ -12,13 +12,13 @@ class Cell
     return "+" if alive?
   end
 
-  def alive_neighbours
-    @alive_neighbours ||= neighbours.select(&:alive?).length
+  def alive_neighbours_length
+    neighbours.select(&:alive?).length
   end
 
   def calculate_next_step
-    @mark_for_death = alive_neighbours < 2 || alive_neighbours > 3
-    @mark_for_birth = alive_neighbours == 3
+    @mark_for_death = alive_neighbours_length < 2 || alive_neighbours_length > 3
+    @mark_for_birth = alive_neighbours_length == 3
   end
 
   def marked?
@@ -30,9 +30,9 @@ class Cell
     birth! if @mark_for_birth
   end
 
-  def dead?; @state == :dead; end
+  def dead?;  @state == :dead; end
   def alive?; @state == :alive; end
 
-  def die!; @state = :dead;  end
+  def die!;   @state = :dead;  end
   def birth!; @state = :alive; end
 end

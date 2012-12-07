@@ -20,14 +20,19 @@ describe Board do
       output.should == BoardSteps.second
     end
 
-    it 'prints next step' do
+    it 'prints next steps' do
       board = Board.new(10,10)
       board.init_plus_pattern 5,5
-      board.evolve!
 
+      board.evolve!
       output = capture_stdout { board.draw }
 
       output.should == BoardSteps.third
+
+      board.evolve!
+      output = capture_stdout { board.draw }
+
+      output.should == BoardSteps.fourth
     end
   end
 end
