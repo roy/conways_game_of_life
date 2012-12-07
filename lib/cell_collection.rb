@@ -14,11 +14,21 @@ class CellCollection
   end
 
   def neighbours_for(x, y)
-    positions = [
-      [x - 1, y - 1], [x - 1, y], [x - 1, y + 1],
-      [x, y-1], [x, y + 1],
-      [x + 1, y - 1], [x + 1, y], [x + 1, y + 1]
-    ]
+    positions = []
+
+    #top row
+    positions << [x - 1, y - 1]
+    positions << [x - 1, y]
+    positions << [x - 1, y + 1]
+
+    #center row
+    positions << [x, y-1]
+    positions << [x, y + 1]
+
+    #bottom row
+    positions << [x + 1, y - 1]
+    positions << [x + 1, y]
+    positions << [x + 1, y + 1]
 
     positions.collect{ |pos_x,pos_y| cell_at(pos_x,pos_y) }
   end

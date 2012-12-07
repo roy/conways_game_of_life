@@ -30,12 +30,6 @@ class Cell
     birth! if @mark_for_birth
   end
 
-  def next_generation
-    cell = Cell.new(@state)
-    cell.evolve!
-    cell
-  end
-
   def dead?; @state == :dead; end
   def alive?; @state == :alive; end
 
